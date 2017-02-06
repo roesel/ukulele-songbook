@@ -1,0 +1,129 @@
+\documentclass{article}
+
+% Setting page margins
+\usepackage[margin=0.5in]{geometry}
+
+% ----------------------------------------------------------------------------------------
+
+% Ukulele Chords section
+\usepackage{etoolbox}
+\usepackage{tikz}
+\newcommand\drawukulelechord[2][]{%
+	\edef\chord{#2}%
+	\begin{tikzpicture}[x=1.3ex,y=1.3ex,line cap=round,line width=.4pt,
+	baseline=(current bounding box.center),#1]
+	\draw[line width=.6pt] (1,0) -- (4,0);
+	\foreach \d in {1,...,4}{\draw (1,-\d) -- (4,-\d);}
+	\foreach \d[count=\p] in \chord {
+		\draw (\p,0) -- (\p,-4.5);
+		\ifdefstring{\d}{-1}{
+			\draw (\p,.25) +(-.125,-.125) -- +(.125,.125)
+			+(-.125,.125) -- +(.125,-.125);
+		}{
+			\ifdefstring{\d}{0}{
+				\draw (\p,.25) circle(.125); % opened string
+			}{
+				\fill (\p,.5-1*\d) circle(.25);
+			}
+		}
+	}
+	\path[use as bounding box] (0.5,.5) rectangle (4.5,-5);
+	\end{tikzpicture}%
+}
+\makeatletter
+\newcommand\defineukulelechord[2]{%
+	\csdef{@ukulelechord@#1}{\drawukulelechord{#2}}%
+}
+\newcommand\ukulelechord[1]{%
+	\ifcsdef{@ukulelechord@#1}{%
+		\csuse{@ukulelechord@#1}%
+	}{%
+		\GenericError{}{Undefined ukulele chord '#1'}{}{}% 
+	}%
+}
+\makeatother
+
+\defineukulelechord{A maj}{2,1,0,0}
+\defineukulelechord{A 6}{2,1,2,0}
+\defineukulelechord{G sharp maj}{5,3,4,3}
+\defineukulelechord{A flat maj}{5,3,4,3}
+\defineukulelechord{G sharp 6}{1,3,1,3}
+
+\defineukulelechord{Am}{2,0,0,0}
+\defineukulelechord{C}{0,0,0,3}
+\defineukulelechord{G}{0,2,3,2}
+\defineukulelechord{Em}{0,4,3,2}
+\defineukulelechord{D}{2,2,2,0}
+
+\defineukulelechord{Fmaj7}{2,4,1,3}
+
+% ----------------------------------------------------------------------------------------
+
+\newcommand{\hint}[1]
+{
+	\begin{tabular}{@{}rcc@{}}
+		& \small{#1} \\
+		& \ukulelechord{#1}  \\	
+	\end{tabular}
+}
+
+% Chordbox
+\usepackage{menukeys}
+
+% create a new simple style to list chord hints
+\newmenustylesimple*{chordbox}{\hint{\CurrentMenuElement}}[]{blacknwhite}
+\renewmenumacro{\chordbox}[,]{chordbox}
+\newcommand{\chordlist}[1]{
+	\chordbox{#1}
+	\vspace{3ex}
+}
+
+% Package used to typeset chord marks
+\usepackage{stackengine}
+
+% Song environment
+\newenvironment{song}[2]
+{
+	\newpage
+	\section[#1 (#2)]{#1 \\{\emph{\large (#2)}}}
+}
+
+% Verse environment
+\renewenvironment{verse}
+{
+%	\setlength{\parskip}{-1.5em}
+	\setlength{\baselineskip}{2.5em}
+}
+
+% Meta-command for chord marks (\chord{Am})
+\newcommand{\metachord}[1]{\stackengine{2.3ex}{}{#1}{O}{l}{\quietstack}{T}{\stacktype}}
+% Different versions of chord-marks (with bar, bar-less, ...)
+\newcommand{\barchord}[1]{\metachord{\rule[-0.2ex]{0.2ex}{0.9em}\,\,#1}}
+\newcommand{\chord}[1]{\metachord{\rule[-0.2ex]{0ex}{0.9em}#1}}
+
+% Turning off numbering of sections
+\setcounter{secnumdepth}{0}
+
+\title{Ukulele minisongbook}  % Title
+\date{}                       % Removing date after title
+\author{}
+
+\setlength{\parindent}{0em}
+
+
+% ----------------------------------------------------------------------------------------
+\begin{document}
+	
+	% Title	
+	\maketitle	
+	\tableofcontents
+	
+	
+	% Songs
+	\input{songs/jolene}
+	\input{songs/one-day}
+	\input{songs/riptide}
+	\input{songs/where-have-all-the-flowers-gone}
+	\input{songs/im-on-fire}
+	
+\end{document}
