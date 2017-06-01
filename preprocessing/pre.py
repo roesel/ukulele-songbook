@@ -52,6 +52,24 @@ def texify_song(file_location):
             injected_line = inject_line(textlines[i], chords, positions)
             print(injected_line + "\\\\")
 
+def strumming_pattern(text):
+    n = len(text) // 2
+
+    formated = []
+
+    formated.append('\\begin{tabular}{{@{} ' + ' '.join(['c@{}c' for i in range(n)]) + ' @{}}}')
+
+    arrows = ['$\\downarrow$' if t == 'd' else '$\\uparrow$' if t == 'u' else '' for t in text]
+    formated.append(' & '.join(arrows) + '\\\\')
+
+    numbers = [str(i//2 + 1) if i%2 == 0 else '-' for i in range(2*n)]
+    formated.append(' & '.join(numbers) + '\\\\')
+
+    formated.append('\\end{tabular}')
+
+
+    return '\n'.join(formated)
+
 def parse_song_info(data):
 
     song_info = {'Title': [], 'By': [], 'Capo': [], 'Strumming': []}
@@ -71,9 +89,9 @@ def parse_song_info(data):
 
         m = re.match(r'Strumming: (.*)', line)
         if m:
-            song_info['Strumming'] = m.group(1)
+            song_info['Strumming'] = strumming_pattern(m.group(1))
 
-    formated = '{{\\Large\\bfseries {Title}}}\\\\\n{{\\large\\bfseries\\itshape {By}}}\\\\\n\\textbf{{Capo}}: {Capo}\\\\\n\\textbf{{Strumming}}: {Strumming}\n'.format(**song_info)
+    formated = '{{\\Large\\bfseries {Title}}}\\\\\n{{\\large\\bfseries\\itshape {By}}}\\\\\n\\textbf{{Capo}}: {Capo}\\\\\n\\textbf{{Strumming}}:\\\\[1ex]\n{Strumming}\n'.format(**song_info)
 
     return formated
 
