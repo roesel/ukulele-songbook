@@ -125,7 +125,7 @@ def split_song(file_location):
                     chords, positions = chord_positions(chordlines[i])
                     injected_line = inject_line(textlines[i], chords, positions)
                     # print(injected_line + "\\\\")
-                    parsed += injected_line + "\\\\\n"
+                    parsed += injected_line.replace(' ','~') + "\\\\\n"
 
                 if tag.lower() == '[chorus]':
                     f.write('\n\\textbf{{Chorus}}:\\\\\n')
