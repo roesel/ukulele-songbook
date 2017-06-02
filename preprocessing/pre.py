@@ -91,7 +91,7 @@ def parse_song_info(data):
         if m:
             song_info['Strumming'] = strumming_pattern(m.group(1))
 
-    formated = '{{\\Large\\bfseries {Title}}}\\\\\n{{\\large\\bfseries\\itshape {By}}}\\\\\n\\textbf{{Capo}}: {Capo}\\\\\n\\textbf{{Strumming}}:\\\\[1ex]\n{Strumming}\n'.format(**song_info)
+    formated = '{{\\Large\\bfseries {Title}}}\\\\[3ex]\n{{\\large\\bfseries\\itshape {By}}}\\\\[3ex]\n\\textbf{{Capo}}: {Capo}\\\\[1ex]\n\\textbf{{Strumming}}:\\\\[1ex]\n{Strumming}\n'.format(**song_info)
 
     return formated
 
@@ -120,15 +120,42 @@ def split_song(file_location):
         tags = song_parts[::2]
         data = song_parts[1::2]
 
-        for j, (tag, dat) in enumerate(zip(tags, data)):
-            if tag.lower() == '[info]':
-                f.write(parse_song_info(dat) + "\n")
+        used_chords = ''
 
-            elif tag.lower() == '[intro]':
-                f.write('\\textbf{{Intro}}:\\\\\n' + dat)
+        for j, (tag, dat) in enumerate(zip(tags, data)):
+
+            if tag.lower() == '[intro]':
+                used_chords += dat.strip() + ' '
 
             elif tag.lower() == '[bridge]':
-                f.write('\\textbf{{Bridge}}:\\\\\n' + dat)
+                used_chords += dat.strip() + ' '
+
+            elif tag.lower() == '[chorus]' or tag.lower() == '[verse]':
+                lines = [s for s in dat.splitlines() if s]
+                chordlines = lines[::2]
+                used_chords += ' '.join(chordlines)
+
+        # remove all characters except for 'A-Z', 'a-z', '/', '#', and whitespace
+        used_chords = re.sub(r'([^A-Za-z/#\s]+)',' ',used_chords)
+
+        # LaTeX does not like '#' character to be used in macros
+        # -- better replace it and deal with it in LaTeX
+        used_chords = re.sub('#','+',used_chords)
+
+        used_chords = ', '.join(set(used_chords.split()))
+        print(used_chords)
+
+        for j, (tag, dat) in enumerate(zip(tags, data)):
+            if tag.lower() == '[info]':
+                f.write(parse_song_info(dat) + '\n' + '\\bigskip\n')
+
+                f.write('\n\\chordlist{{{}}}\\\\\n'.format(used_chords))
+
+            elif tag.lower() == '[intro]':
+                f.write('\n\\textbf{{Intro}}:\\\\\n' + dat.strip() + '\\\\\n')
+
+            elif tag.lower() == '[bridge]':
+                f.write('\n\\textbf{{Bridge}}:\\\\\n' + dat)
 
             elif tag.lower() == '[chorus]' or tag.lower() == '[verse]':
 
@@ -146,11 +173,11 @@ def split_song(file_location):
                     parsed += injected_line.replace(' ','~') + "\\\\\n"
 
                 if tag.lower() == '[chorus]':
-                    f.write('\n\\textbf{{Chorus}}:\\\\\n')
+                    f.write('\n\\textbf{{Chorus}}:\\\\[1ex]\n')
                 elif tag.lower() == '[verse]':
-                    f.write('\n\\textbf{{Verse}}:\\\\\n')
+                    f.write('\n\\textbf{{Verse}}:\\\\[1ex]\n')
 
-                f.write(parsed)
+                f.write('{{\\sffamily {}}}\n'.format(parsed))
 
 
         # with open(file_location + '.tex', 'w', encoding="utf-8") as f:
