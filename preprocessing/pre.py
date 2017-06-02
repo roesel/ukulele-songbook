@@ -53,19 +53,23 @@ def texify_song(file_location):
             print(injected_line + "\\\\")
 
 def strumming_pattern(text):
-    n = len(text) // 2
+
+    bars = text.split()
 
     formated = []
 
-    formated.append('\\begin{tabular}{{@{} ' + ' '.join(['c@{}c' for i in range(n)]) + ' @{}}}')
+    for bar in bars:
+        n = len(bar) // 2
 
-    arrows = ['$\\downarrow$' if t == 'd' else '$\\uparrow$' if t == 'u' else '' for t in text]
-    formated.append(' & '.join(arrows) + '\\\\')
+        formated.append('\\begin{tabular}{{@{} ' + ' '.join(['c@{}c' for i in range(n)]) + ' @{}}}')
 
-    numbers = [str(i//2 + 1) if i%2 == 0 else '-' for i in range(2*n)]
-    formated.append(' & '.join(numbers) + '\\\\')
+        arrows = ['$\\downarrow$' if t == 'd' else '$\\uparrow$' if t == 'u' else '' for t in bar]
+        formated.append(' & '.join(arrows) + '\\\\')
 
-    formated.append('\\end{tabular}')
+        numbers = [str(i//2 + 1) if i%2 == 0 else '-' for i in range(2*n)]
+        formated.append(' & '.join(numbers) + '\\\\')
+
+        formated.append('\\end{tabular}')
 
 
     return '\n'.join(formated)
@@ -112,7 +116,7 @@ def split_song(file_location):
         txt = f.read()
 
     with open(file_location + '.tex', 'w', encoding="utf-8") as f:
-        song_parts = re.split(r'(\[\w+\])\n', txt)
+        song_parts = re.split(r'(\[[\w\*]+\])\n', txt)
 
         if song_parts[0] == '':
             song_parts.pop(0)
@@ -143,7 +147,7 @@ def split_song(file_location):
         used_chords = re.sub('#','+',used_chords)
 
         used_chords = ', '.join(set(used_chords.split()))
-        print(used_chords)
+        #print(used_chords)
 
         for j, (tag, dat) in enumerate(zip(tags, data)):
             if tag.lower() == '[info]':
@@ -157,24 +161,30 @@ def split_song(file_location):
             elif tag.lower() == '[bridge]':
                 f.write('\n\\textbf{{Bridge}}:\\\\\n' + dat)
 
-            elif tag.lower() == '[chorus]' or tag.lower() == '[verse]':
+            elif tag.lower() in ['[chorus]','[verse]', '[chorus*]', '[verse*]']:
 
                 lines = [s for s in dat.splitlines() if s]
 
-                chordlines = lines[::2]
-                textlines = lines[1::2]
+                if tag.lower() in ['[chorus]','[verse]']:
+                    chordlines = lines[::2]
+                    textlines = lines[1::2]
 
-                parsed = ''
+                    parsed = ''
+                    for i in range(len(chordlines)):
+                        chords, positions = chord_positions(chordlines[i])
+                        # print(chords)
+                        injected_line = inject_line(textlines[i], chords, positions)
+                        # print(injected_line + "\\\\")
+                        parsed += injected_line + '\\\\\n'
 
-                for i in range(len(chordlines)):
-                    chords, positions = chord_positions(chordlines[i])
-                    injected_line = inject_line(textlines[i], chords, positions)
-                    # print(injected_line + "\\\\")
-                    parsed += injected_line.replace(' ','~') + "\\\\\n"
+                elif tag.lower() in ['[chorus*]', '[verse*]']:
+                    parsed = '\\\\\n'.join(lines) + '\\\\\n'
 
-                if tag.lower() == '[chorus]':
+                parsed = parsed.replace(' ','~')
+
+                if tag.lower() in ['[chorus]', '[chorus*]']:
                     f.write('\n\\textbf{{Chorus}}:\\\\[1ex]\n')
-                elif tag.lower() == '[verse]':
+                elif tag.lower() in ['[verse]', '[verse*]']:
                     f.write('\n\\textbf{{Verse}}:\\\\[1ex]\n')
 
                 f.write('{{\\sffamily {}}}\n'.format(parsed))
@@ -187,3 +197,4 @@ def split_song(file_location):
 # texify_song('input.txt')
 
 split_song('how-to-save-a-life.txt')
+split_song('bedna-od-whisky.txt')
