@@ -198,3 +198,4 @@ def split_song(file_location):
 
 split_song('how-to-save-a-life.txt')
 split_song('bedna-od-whisky.txt')
+split_song('batalion.txt')
