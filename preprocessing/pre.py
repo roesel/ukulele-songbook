@@ -76,7 +76,7 @@ def strumming_pattern(text):
 
 def parse_song_info(data):
 
-    song_info = {'Title': [], 'By': [], 'Capo': [], 'Strumming': []}
+    song_info = {'Title': [], 'By': [], 'Capo': [], 'Strumming': [], 'Note': []}
 
     for line in data.splitlines():
         m = re.match(r'Title: (.*)', line)
@@ -95,7 +95,21 @@ def parse_song_info(data):
         if m:
             song_info['Strumming'] = strumming_pattern(m.group(1))
 
-    formated = '{{\\Large\\bfseries {Title}}}\\\\[3ex]\n{{\\large\\bfseries\\itshape {By}}}\\\\[3ex]\n\\textbf{{Capo}}: {Capo}\\\\[1ex]\n\\textbf{{Strumming}}:\\\\[1ex]\n{Strumming}\n'.format(**song_info)
+        m = re.match(r'Note: (.*)', line)
+        if m:
+            song_info['Note'] = m.group(1)
+
+    formated = '{{\\Large\\bfseries {Title}}}\\\\[3ex]\n{{\\large\\bfseries\\itshape {By}}}\\\\[3ex]\n'.format(**song_info)
+    if song_info['Capo']:
+        formated += '\\textbf{{Capo}}: {Capo}\\\\[1ex]\n'.format(**song_info)
+    if song_info['Strumming']:
+        formated += '\\textbf{{Strumming}}:\\\\[1ex]\n{Strumming}\\\\[1ex]\n'.format(**song_info)
+    if song_info['Note']:
+        formated += '\\textbf{{Note}}: {Note}\\\\[1ex]\n'.format(**song_info)
+
+    # formated text always ends with something like '\\[3ex]\n' - this creates
+    # an extra space after the last line -- delete in (i know it's a bad practice) :-)
+    formated = re.sub(r'\\\\\[[0-9]ex\]\n$', '\n\n', formated)
 
     return formated
 
