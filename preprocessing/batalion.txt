@@ -1,6 +1,9 @@
 [Info]
 Title: Batalion
 By: Spirituál kvintet
+Capo: 3
+Strumming: d-dudu
+Note: Zkontrolovat strumming
 
 [Verse]
 Ami  C     G    Ami    Ami    C      G    Ami
