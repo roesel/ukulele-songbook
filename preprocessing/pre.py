@@ -76,7 +76,9 @@ def strumming_pattern(text):
 
 def parse_song_info(data):
 
-    song_info = {'Title': [], 'By': [], 'Capo': [], 'Strumming': [], 'Note': []}
+    song_info = {'Title': [], 'By': [], 'Capo': [], 'Strumming': {}, 'Note': []}
+    song_info['Strumming']['Note'] = []
+    song_info['Strumming']['Pattern'] = []
 
     for line in data.splitlines():
         m = re.match(r'Title: (.*)', line)
@@ -91,10 +93,11 @@ def parse_song_info(data):
         if m:
             song_info['Capo'] = m.group(1)
 
-        m = re.match(r'Strumming: (.*)', line)
+        m = re.match(r'Strumming: ([du\-\s]*)(\(.*\))?', line)
         if m:
-            song_info['Strumming'] = strumming_pattern(m.group(1))
-
+            strum = strumming_pattern(m.group(1))
+            song_info['Strumming']['Note'].append(m.group(2))
+            song_info['Strumming']['Pattern'].append(strum)
         m = re.match(r'Note: (.*)', line)
         if m:
             song_info['Note'] = m.group(1)
@@ -103,7 +106,13 @@ def parse_song_info(data):
     if song_info['Capo']:
         formated += '\\textbf{{Capo}}: {Capo}\\\\[1ex]\n'.format(**song_info)
     if song_info['Strumming']:
-        formated += '\\textbf{{Strumming}}:\\\\[1ex]\n{Strumming}\\\\[1ex]\n'.format(**song_info)
+        for note, pattern in zip(song_info['Strumming']['Note'], song_info['Strumming']['Pattern']):
+            if note:
+                note = ' ' + note
+            else:
+                note = ''
+
+            formated += '\\textbf{{Strumming}}{}:\\\\[1ex]\n{}\\\\[1ex]\n'.format(note, pattern)
     if song_info['Note']:
         formated += '\\textbf{{Note}}: {Note}\\\\[1ex]\n'.format(**song_info)
 
@@ -123,14 +132,17 @@ def split_song(file_location):
 
         [Intro]
         [Verse]
+        [Pre-Chorus]
         [Chorus]
+        [Interlude]
         [Bridge]
+        [Outro]
     '''
     with open(file_location, 'r', encoding="utf-8") as f:
         txt = f.read()
 
     with open(file_location + '.tex', 'w', encoding="utf-8") as f:
-        song_parts = re.split(r'(\[[\w\*]+\])\n', txt)
+        song_parts = re.split(r'(\[[\w\-\*]+\])\n', txt)
 
         if song_parts[0] == '':
             song_parts.pop(0)
@@ -148,10 +160,10 @@ def split_song(file_location):
             elif tag.lower() == '[bridge]':
                 used_chords += dat.strip() + ' '
 
-            elif tag.lower() == '[chorus]' or tag.lower() == '[verse]':
+            elif tag.lower() in ['[chorus]', '[verse]', '[pre-chorus]', '[interlude]', '[outro]']:
                 lines = [s for s in dat.splitlines() if s]
                 chordlines = lines[::2]
-                used_chords += ' '.join(chordlines)
+                used_chords += ' ' + ' '.join(chordlines) + ' '
 
         # remove all characters except for 'A-Z', 'a-z', '/', '#', and whitespace
         used_chords = re.sub(r'([^A-Za-z/#\s]+)',' ',used_chords)
@@ -161,7 +173,7 @@ def split_song(file_location):
         used_chords = re.sub('#','+',used_chords)
 
         used_chords = ', '.join(set(used_chords.split()))
-        #print(used_chords)
+        # print(used_chords)
 
         for j, (tag, dat) in enumerate(zip(tags, data)):
             if tag.lower() == '[info]':
@@ -175,11 +187,11 @@ def split_song(file_location):
             elif tag.lower() == '[bridge]':
                 f.write('\n\\textbf{{Bridge}}:\\\\\n' + dat)
 
-            elif tag.lower() in ['[chorus]','[verse]', '[chorus*]', '[verse*]']:
+            elif tag.lower() in ['[chorus]','[verse]', '[chorus*]', '[verse*]', '[pre-chorus]', '[interlude]', '[outro]']:
 
                 lines = [s for s in dat.splitlines() if s]
 
-                if tag.lower() in ['[chorus]','[verse]']:
+                if tag.lower() in ['[chorus]','[verse]', '[pre-chorus]', '[interlude]', '[outro]']:
                     chordlines = lines[::2]
                     textlines = lines[1::2]
 
@@ -200,6 +212,12 @@ def split_song(file_location):
                     f.write('\n\\textbf{{Chorus}}:\\\\[1ex]\n')
                 elif tag.lower() in ['[verse]', '[verse*]']:
                     f.write('\n\\textbf{{Verse}}:\\\\[1ex]\n')
+                elif tag.lower() in ['[pre-chorus]', '[pre-chorus*]']:
+                    f.write('\n\\textbf{{Pre-Chorus}}:\\\\[1ex]\n')
+                elif tag.lower() in ['[interlude]']:
+                    f.write('\n\\textbf{{Interlude}}:\\\\[1ex]\n')
+                elif tag.lower() in ['[outro]']:
+                    f.write('\n\\textbf{{Outro}}:\\\\[1ex]\n')
 
                 f.write('{{\\sffamily {}}}\n'.format(parsed))
 
@@ -213,3 +231,4 @@ def split_song(file_location):
 split_song('how-to-save-a-life.txt')
 split_song('bedna-od-whisky.txt')
 split_song('batalion.txt')
+split_song('whats-up.txt')
