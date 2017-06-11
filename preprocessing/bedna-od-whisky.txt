@@ -1,16 +1,21 @@
 [Info]
 Title: Bedna od Whisky
 By: Miki Ryvola
-Strumming: d-dud-du dudududu d-dud-du d-d-d---
+Strumming: d-dud-du dudududu d-dud-du d-d-d--- (verse)
+Strumming: dudududu (chorus)
+Note: Two chords per bar (Ami Ami C C, Ami Ami E E); exception: second/fourth line of verse: (Ami Ami C C, Ami E Ami Ami). Bridge (verse--chorus) 1 bar Ami, 1 bar A, (chorus--verse) 1 bar A, 1 bar Ami
+
+[Intro]
+Ami
 
 [Verse]
     Ami          C        Ami            E
 1. Dneska už mně fóry ňák nejdou přes pysky,
     Ami              C          Ami   E       Ami
    stojím s dlouhou kravatou na bedně vod whisky,
-                    C        Ami          E
+  Ami               C        Ami          E
    stojím s dlouhým vobojkem jak stájovej pinč,
-       Ami        C         Ami     E      Ami   A
+       Ami        C         Ami     E      Ami   Ami A
    tu kravatu, co nosím, mi navlík' soudce Lynč.
 
 [Chorus]
@@ -20,7 +25,7 @@ R: Tak kopni do tý bedny, ať panstvo nečeká,
    jsou dlouhý schody do nebe a štreka daleká
       A         D        E            A
    do nebeskýho baru, já sucho v krku mám,
-       A           D         E           A   Ami
+       A           D         E           A   A  Ami
    tak kopni do tý bedny, ať na cestu se dám.
 
 [Verse*]
