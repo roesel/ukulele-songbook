@@ -27,7 +27,18 @@ def inject_line(line, chords, positions):
     injected_line = ""
     last = 0
     for i in range(len(chords)):
-        injected_line += line[last:positions[i]]
+        # try to fix chords after the last word in each line (WIP)
+        if len(line) >= positions[i]:
+            injected_line += line[last:positions[i]]
+        else:
+            if last < len(line):
+                injected_line += line[last:positions[i]]
+                N = 4 - (len(line) - last) + 2
+            else:
+                N = 4
+            print(N)
+            injected_line += "\phantom{"+ "N"*N +"}"
+
         injected_line += "\chord{" + chords[i] + "}"
         last = positions[i]
     injected_line += line[last:]
