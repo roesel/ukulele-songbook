@@ -113,7 +113,8 @@ def parse_song_info(data):
         if m:
             song_info['Note'] = m.group(1)
 
-    formated = '{{\\Large\\bfseries {Title}}}\\\\[3ex]\n{{\\large\\bfseries\\itshape {By}}}\\\\[3ex]\n'.format(**song_info)
+    formated = '\\addcontentsline{{toc}}{{section}}{{{Title}}}\n'.format(**song_info)
+    formated += '{{\\Large\\bfseries {Title}}}\\\\[3ex]\n{{\\large\\bfseries\\itshape {By}}}\\\\[3ex]\n'.format(**song_info)
     if song_info['Capo']:
         formated += '\\textbf{{Capo}}: {Capo}\\\\[1ex]\n'.format(**song_info)
     if song_info['Strumming']:
