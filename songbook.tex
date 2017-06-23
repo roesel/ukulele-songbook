@@ -136,6 +136,17 @@
 
 \usepackage{amsmath}
 
+\usepackage{mathtools}
+%https://tex.stackexchange.com/questions/24681/crossing-out-arrows
+
+\makeatletter
+\newcommand{\superimpose}[2]{%
+	{\ooalign{$#1\@firstoftwo#2$\cr\hfil$#1\@secondoftwo#2$\hfil\cr}}}
+\makeatother
+
+\newcommand{\downarrowcrossed}{\mathrel{\mathpalette\superimpose{{-}{\downarrow}}}}
+\newcommand{\uparrowcrossed}{\mathrel{\mathpalette\superimpose{{-}{\uparrow}}}}
+
 % ----------------------------------------------------------------------------------------
 \begin{document}
 	
@@ -165,4 +176,6 @@
 	\input{preprocessing/batalion.txt.tex}
 	\clearpage
 	\input{preprocessing/whats-up.txt.tex}
+	\clearpage
+	\input{preprocessing/stand-by-me.txt.tex}
 \end{document}

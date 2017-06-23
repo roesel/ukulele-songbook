@@ -74,7 +74,12 @@ def strumming_pattern(text):
 
         formated.append('\\begin{tabular}{{@{} ' + ' '.join(['c@{}c' for i in range(n)]) + ' @{}}}')
 
-        arrows = ['$\\downarrow$' if t == 'd' else '$\\uparrow$' if t == 'u' else '' for t in bar]
+        arrows = ['$\\downarrow$' if t == 'd' else \
+            '$\\uparrow$' if t == 'u' else \
+            '$\\times$' if t == 'x' else \
+            '$\\downarrowcrossed$' if t == 'y' else \
+            '$\\uparrowcrossed$' if t == 'z' else \
+            '' for t in bar]
         formated.append(' & '.join(arrows) + '\\\\')
 
         numbers = [str(i//2 + 1) if i%2 == 0 else '-' for i in range(2*n)]
@@ -104,7 +109,7 @@ def parse_song_info(data):
         if m:
             song_info['Capo'] = m.group(1)
 
-        m = re.match(r'Strumming: ([du\-\s]*)(\(.*\))?', line)
+        m = re.match(r'Strumming: ([duxyz\-\s]*)(\(.*\))?', line)
         if m:
             strum = strumming_pattern(m.group(1))
             song_info['Strumming']['Note'].append(m.group(2))
@@ -244,3 +249,4 @@ split_song('how-to-save-a-life.txt')
 split_song('bedna-od-whisky.txt')
 split_song('batalion.txt')
 split_song('whats-up.txt')
+split_song('stand-by-me.txt')
