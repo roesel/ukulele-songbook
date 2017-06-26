@@ -171,13 +171,18 @@
 \defineguitarchordALT{Am}{Ami}
 \defineguitarchordALT{Em}{Emi}
 
+% ----------------------------------------------------------------------------------------
+
+\newtoggle{ukulele}
+%\toggletrue{ukulele}
+\togglefalse{ukulele}
 
 \newcommand{\hint}[1]
 {
 	\StrSubstitute{#1}{+}{\#}[\temp]%
 	\begin{tabular}{@{}rcc@{}}
 		& \small{\temp} \\
-		& \ukulelechord{#1}  \\	
+		& \iftoggle{ukulele}{\ukulelechord{#1}}{\guitarchord{#1}}\\	
 	\end{tabular}
 }
 
