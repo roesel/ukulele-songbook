@@ -44,6 +44,11 @@ def inject_line(line, chords, positions):
     injected_line += line[last:]
     return mini_tex_escape(injected_line)
 
+def inline_chord_line(line):
+    chords = line.split()
+    for i in range(len(chords)):
+        chords[i] = "\inlinechord{" + chords[i] + "}"
+    return mini_tex_escape('~~'.join(chords))
 
 def texify_song(file_location):
     ''' Converts file with structure:
@@ -139,7 +144,7 @@ def parse_song_info(data):
 
     return formated
 
-def split_song(file_location):
+def split_song(file_location, save_folder):
     ''' Handles anotated txt file. Allowed tags (and file structure):
         [Info]
             Title:
@@ -158,7 +163,7 @@ def split_song(file_location):
     with open(file_location, 'r', encoding="utf-8") as f:
         txt = f.read()
 
-    with open(file_location + '.tex', 'w', encoding="utf-8") as f:
+    with open(save_folder + '/' + file_location + '.tex', 'w', encoding="utf-8") as f:
         song_parts = re.split(r'(\[[\w\-\*]+\])\n', txt)
 
         if song_parts[0] == '':
@@ -199,10 +204,10 @@ def split_song(file_location):
                 f.write('\n\\chordlist{{{}}}\\\\\n'.format(used_chords))
 
             elif tag.lower() == '[intro]':
-                f.write('\n\\textbf{{Intro}}:\\\\\n' + dat.strip() + '\\\\\n')
+                f.write('\n\\textbf{{Intro}}:\\\\\n' + inline_chord_line(dat.strip()) + '\\\\\n')
 
             elif tag.lower() == '[bridge]':
-                f.write('\n\\textbf{{Bridge}}:\\\\\n' + dat)
+                f.write('\n\\textbf{{Bridge}}:\\\\\n' + inline_chord_line(dat.strip()) + '\\\\\n')
 
             elif tag.lower() in ['[chorus]','[verse]', '[chorus*]', '[verse*]', '[pre-chorus]', '[interlude]', '[outro]']:
 
