@@ -222,6 +222,8 @@
 \newcommand{\barchord}[1]{\metachord{\rule[-0.2ex]{0.2ex}{0.9em}\,\,#1}}
 \newcommand{\chord}[1]{\metachord{\rule[-0.2ex]{0ex}{0.9em}\color{blue}\bfseries#1}}
 
+\newcommand{\inlinechord}[1]{{\color{blue}\bfseries#1}}
+
 % Turning off numbering of sections
 \setcounter{secnumdepth}{0}
 
@@ -268,15 +270,15 @@
 	\clearpage
 	\input{songs/im-on-fire}
 	\clearpage
-	\input{songs/how-to-save-a-life}
+	%\input{songs/how-to-save-a-life}
+	%\clearpage
+	\input{preprocessing/tex/how-to-save-a-life.txt.tex}
 	\clearpage
-	\input{preprocessing/how-to-save-a-life.txt.tex}
+	\input{preprocessing/tex/bedna-od-whisky.txt.tex}
 	\clearpage
-	\input{preprocessing/bedna-od-whisky.txt.tex}
+	\input{preprocessing/tex/batalion.txt.tex}
 	\clearpage
-	\input{preprocessing/batalion.txt.tex}
+	\input{preprocessing/tex/whats-up.txt.tex}
 	\clearpage
-	\input{preprocessing/whats-up.txt.tex}
-	\clearpage
-	\input{preprocessing/stand-by-me.txt.tex}
+	\input{preprocessing/tex/stand-by-me.txt.tex}
 \end{document}

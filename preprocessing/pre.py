@@ -250,8 +250,8 @@ def split_song(file_location, save_folder):
 
 # texify_song('input.txt')
 
-split_song('how-to-save-a-life.txt')
-split_song('bedna-od-whisky.txt')
-split_song('batalion.txt')
-split_song('whats-up.txt')
-split_song('stand-by-me.txt')
+split_song('how-to-save-a-life.txt', 'tex')
+split_song('bedna-od-whisky.txt', 'tex')
+split_song('batalion.txt', 'tex')
+split_song('whats-up.txt', 'tex')
+split_song('stand-by-me.txt', 'tex')
