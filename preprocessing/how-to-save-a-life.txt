@@ -11,7 +11,7 @@ G D G D
 
 [Verse]
 
-G                    D/F#   
+G                    D/F#
 Step one you say we need to talk
     Em                 D/F#             G
 He walks you say sit down it’s just a talk
@@ -25,7 +25,7 @@ Some sort of window to your right
 As he goes left and you stay right
               D/F#             Em
 Between the lines of fear and blame
-                   D/F#             
+                   D/F#
 And you begin to wonder why you came
 
 
@@ -37,25 +37,27 @@ Where did I go wrong, I lost a friend
 Somewhere along in the bitterness
     C                   D                Em
 And I would have stayed up with you all night
-             G     D      G     (D/F# Em D/F#)
+             G     D      G
 Had I known how to save a life
 
+[Bridge]
+D/F#   Em   D/F#
 
 [Verse]
 
-G                 D/F# 
+G                 D/F#
 Let him know that you know best
-       Em           D/F#         
+       Em           D/F#
 Cause after all you do know best
-G                  D/F# 
+G                  D/F#
   Try to slip past his defense
-Em               D/F#         
+Em               D/F#
 Without granting innocence
 G             D/F#             Em
    Lay down a list of what is wrong
-             D/F# 
+             D/F#
 The things you’ve told him all along
-G                   D/F#                
+G                   D/F#
 And pray to God he hears you
     Em             D/F#
 And pray to God he hears you
@@ -69,27 +71,29 @@ Where did I go wrong, I lost a friend
 Somewhere along in the bitterness
     C                   D                Em
 And I would have stayed up with you all night
-             G     D      G     (D/F# Em D/F#)
+             G     D      G
 Had I known how to save a life
 
+[Bridge]
+D/F#   Em   D/F#
 
 [Verse]
 
-    G            D/F# 
-As he begins to raise his voice 
+    G            D/F#
+As he begins to raise his voice
      Em              D/F#                  G
 You lower yours and grant him one last choice
-                 D/F#  
+                 D/F#
 Drive until you lose the road
-    Em                         D/F# 
+    Em                         D/F#
 Or break with the ones you’ve followed
-G             D/F#   
-   He will do one of two things 
-Em                D/F#  
+G             D/F#
+   He will do one of two things
+Em                D/F#
 He will admit to everything
-G                     D/F# 
+G                     D/F#
 Or he’ll say he’s just not the same
-     Em             D/F# 
+     Em             D/F#
 And you’ll begin to wonder why you came
 
 
@@ -109,5 +113,8 @@ Where did I go wrong, I lost a friend
 Somewhere along in the bitterness
     C                   D                Em
 And I would have stayed up with you all night
-             G     D      G     (D/F# Em D/F#)
+             G     D      G
 Had I known how to save a life
+
+[Bridge]
+D/F#   Em   D/F#
