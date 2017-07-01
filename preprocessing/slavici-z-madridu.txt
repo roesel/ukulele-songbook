@@ -1,0 +1,50 @@
+[Info]
+Title: Slavíci z Madridu
+By: Waldemar Matuška
+Strumming: d-u-u-
+Note: Every verse line is 8 bars: Am 2x E 4x Am 2x. Every chorus line is 4 bars: Dm 2x Am 2x or Em 2x Am 2x. Instead of Dm  Am  E one can play also Am  Em B7.
+
+[Intro]
+Dm   Am   E  Am   Dm   Am   E  Am 
+   
+[Verse]
+  Am               E                   Am 
+Nebe je modrý a zlatý, bílá sluneční záře,
+                  E                      Am 
+horko a sváteční šaty, vřava a zpocený tváře,
+                 E                         Am 
+vím, co se bude dít, býk už se v ohradě vzpíná,
+                    E                       Am 
+kdo chce, ten může jít, já si dám sklenici vína.
+
+
+[Chorus]
+ Dm               Am 
+Žízeň je veliká, život mi utíká,
+ E                   Am 
+nechte mě příjemně snít,
+ Dm                Am 
+ve stínu pod fíky poslouchat slavíky,
+  E                 Am 
+zpívat si s nima a pít.
+
+
+[Verse*]
+Ženy jsou krásný a cudný, mnohá se ve mně zhlídla,
+oči jako dvě studny, vlasy jak havraní křídla,
+dobře vím, co znamená pád do nástrah dívčího klína,
+někdo má pletky rád, já si dám sklenici vína.
+
+
+[Chorus*]    
+Žízeň je veliká...
+
+
+[Verse*]
+Nebe je modrý a zlatý, ženy krásný a cudný,
+mantily, sváteční šaty, oči jako dvě studny,
+zmoudřel jsem stranou od lidí, jsem jak ta zahrada stinná,
+kdo chce, ať mi závidí, já si dám sklenici vína.
+
+[Chorus*]
+Žízeň je veliká...
