@@ -4,6 +4,7 @@
 import os
 import re
 import glob
+import errno
 
 def chord_positions(chordline):
     ''' Returns a list of chords and their respective positions in line. '''
@@ -255,8 +256,6 @@ def split_song(file_location, save_folder):
                     f.write('\n\\textbf{{Outro}}:\\\\[1ex]\n')
 
                 f.write('{{\\sffamily {}}}\n'.format(parsed))
-
-import errno
 
 def make_sure_path_exists(path):
     try:
