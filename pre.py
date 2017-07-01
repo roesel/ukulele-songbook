@@ -3,6 +3,7 @@
 
 import os
 import re
+import glob
 
 def chord_positions(chordline):
     ''' Returns a list of chords and their respective positions in line. '''
@@ -20,6 +21,15 @@ def mini_tex_escape(line):
     ''' Handles minimal TeX escaping (F#, ...). Complicate as needed. '''
     line = line.replace('#', '\#')
     return line
+
+def get_all_files_from(directory):
+    owd = os.getcwd()
+    os.chdir(directory)
+    files = []
+    for file in glob.glob("*.txt"):
+        files.append(file)
+    os.chdir(owd)
+    return files
 
 
 def inject_line(line, chords, positions):
@@ -163,7 +173,7 @@ def split_song(file_location, save_folder):
     with open(file_location, 'r', encoding="utf-8") as f:
         txt = f.read()
 
-    with open(save_folder + '/' + file_location + '.tex', 'w', encoding="utf-8") as f:
+    with open(save_folder + '/' + file_location.split("/")[-1] + '.tex', 'w', encoding="utf-8") as f:
         song_parts = re.split(r'(\[[\w\-\*]+\])\s*\n', txt)
 
         if song_parts[0] == '':
@@ -173,8 +183,8 @@ def split_song(file_location, save_folder):
         data = song_parts[1::2]
 
         for j, tag in enumerate(tags):
-            tags[j] = tag.strip()            
-        
+            tags[j] = tag.strip()
+
         used_chords = ''
 
         for j, (tag, dat) in enumerate(zip(tags, data)):
@@ -246,16 +256,15 @@ def split_song(file_location, save_folder):
 
                 f.write('{{\\sffamily {}}}\n'.format(parsed))
 
+import errno
 
-        # with open(file_location + '.tex', 'w', encoding="utf-8") as f:
-        #
-        #     f.write('\n'.join(zip(tags,data)))
+def make_sure_path_exists(path):
+    try:
+        os.makedirs(path)
+    except OSError as exception:
+        if exception.errno != errno.EEXIST:
+            raise
 
-# texify_song('input.txt')
-
-split_song('how-to-save-a-life.txt', 'tex')
-split_song('bedna-od-whisky.txt', 'tex')
-split_song('batalion.txt', 'tex')
-split_song('whats-up.txt', 'tex')
-split_song('stand-by-me.txt', 'tex')
-split_song('slavici-z-madridu.txt', 'tex')
+make_sure_path_exists('songs_tex')
+for song in get_all_files_from('songs_txt'):
+    split_song('songs_txt/'+song, 'songs_tex')
