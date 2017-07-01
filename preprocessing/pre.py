@@ -164,7 +164,7 @@ def split_song(file_location, save_folder):
         txt = f.read()
 
     with open(save_folder + '/' + file_location + '.tex', 'w', encoding="utf-8") as f:
-        song_parts = re.split(r'(\[[\w\-\*]+\])\n', txt)
+        song_parts = re.split(r'(\[[\w\-\*]+\])\s*\n', txt)
 
         if song_parts[0] == '':
             song_parts.pop(0)
@@ -172,6 +172,9 @@ def split_song(file_location, save_folder):
         tags = song_parts[::2]
         data = song_parts[1::2]
 
+        for j, tag in enumerate(tags):
+            tags[j] = tag.strip()            
+        
         used_chords = ''
 
         for j, (tag, dat) in enumerate(zip(tags, data)):
