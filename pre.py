@@ -38,27 +38,33 @@ def inject_line(line, chords, positions):
     injected_line = ""
     last = 0
     for i in range(len(chords)):
-        # try to fix chords after the last word in each line (WIP)
-        if len(line) >= positions[i]:
-            injected_line += line[last:positions[i]]
+        if re.match("\(.*\)", chords[i]):
+            injected_line += chords[i]
         else:
-            if last < len(line):
+            # try to fix chords after the last word in each line (WIP)
+            if len(line) >= positions[i]:
                 injected_line += line[last:positions[i]]
-                N = 4 - (len(line) - last) + 2
             else:
-                N = 4
-            print(N)
-            injected_line += "\phantom{"+ "N"*N +"}"
+                if last < len(line):
+                    injected_line += line[last:positions[i]]
+                    N = 4 - (len(line) - last) + 2
+                else:
+                    N = 4
+                print(N)
+                injected_line += "\phantom{"+ "N"*N +"}"
 
-        injected_line += "\chord{" + chords[i] + "}"
-        last = positions[i]
+            injected_line += "\chord{" + chords[i] + "}"
+            last = positions[i]
     injected_line += line[last:]
     return mini_tex_escape(injected_line)
 
 def inline_chord_line(line):
     chords = line.split()
     for i in range(len(chords)):
-        chords[i] = "\inlinechord{" + chords[i] + "}"
+        if re.match("\(.*\)", chords[i]):
+            pass
+        else:
+            chords[i] = "\inlinechord{" + chords[i] + "}"
     return mini_tex_escape('~~'.join(chords))
 
 def texify_song(file_location):
@@ -201,8 +207,10 @@ def split_song(file_location, save_folder):
                 chordlines = lines[::2]
                 used_chords += ' ' + ' '.join(chordlines) + ' '
 
-        # remove all characters except for 'A-Z', 'a-z', '/', '#', and whitespace
-        used_chords = re.sub(r'([^A-Za-z/#\s]+)',' ',used_chords)
+        # remove all characters except for 'A-Z', 'a-z', '0-9', '/', '#', '()', and whitespace
+        used_chords = re.sub(r'([^A-Za-z0-9/#\(\)\s]+)',' ',used_chords)
+
+        used_chords = re.sub(r'(\(.*\))',' ',used_chords)
 
         # LaTeX does not like '#' character to be used in macros
         # -- better replace it and deal with it in LaTeX
