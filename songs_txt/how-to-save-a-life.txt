@@ -3,7 +3,9 @@
 Title: How to Save a Life
 By: The Fray
 Capo: 3
-Strumming: d-du-ud-
+Strumming: d--u-ud- (verse)
+Strumming: d-du-ud- (chorus)
+Note: Every chord 4 bars except for 2nd/4th line of chorus -- G 2 bars, D/F\# 2  bars.
 
 [Intro]
 
