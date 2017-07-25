@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 ''' texify.py converts "chord lines" to injected \chord{} LaTeX tags '''
 
 import os
