@@ -1,14 +1,14 @@
 [Info]
 Title: Knockin On Heavens Door
-By: Guns N' Roses
+By: Bob Dylan
 Strumming: d---d-du
 
 [Intro]
 G D C C (x2)
 
 [Verse]
-G     D                    Am   Am
-Mamma take this badge from me
+G          D                 Am   Am
+Mamma take this badge off of me
 G        D         C    C
  I can't use it anymore
 G             D                 Am    Am
@@ -31,49 +31,11 @@ Hey, hey, hey, hey, yeah
 [Solo]
 G D C C (x2)
 
-[2nd Verse]
-G      D                   Am   Am
- Mama, put my guns in the ground
-G        D             C    C
- I can't shoot them anymore
-G                D               Am     Am
- That cold black cloud is coming down
-G               D                    C     C
- Feels like I'm knocking on heaven's door
+[Verse*]
+Mama, put my guns in the ground
+I can't shoot them anymore
+That cold black cloud is coming down
+Feels like I'm knocking on heaven's door
 
-[Chorus]
-G            D                     Am Am
-Knock knock knocking on heaven's door
-G            D                    C  C
-knock knock knocking on heaven's door
-G            D                     Am Am
-Knock knock knocking on heaven's door
-G            D                    C
-knock knock knocking on heaven's door
-C
-Hey, hey, hey, hey, yeah
-
-[Bridge]
-G D C C (x6)
-
-[Chorus]
-G            D                     Am Am
-Knock knock knocking on heaven's door
-G            D                    C  C
-knock knock knocking on heaven's door
-G            D                     Am Am
-Knock knock knocking on heaven's door
-G            D                    C
-knock knock knocking on heaven's door
-C
-Hey, hey, hey, hey, yeah
-G            D                     Am Am
-Knock knock knocking on heaven's door
-G            D                    C  C
-knock knock knocking on heaven's door
-G            D                     Am Am
-Knock knock knocking on heaven's door
-G            D                    C
-knock knock knocking on heaven's door
-C                   G 
-Hey, hey, hey, hey, yeah
+[Chorus*]
+Knock knock... (xN)

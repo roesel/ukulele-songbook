@@ -25,15 +25,11 @@ Here in heaven.
 [Interlude*]
 | D   A | Bm  | G  A7  A7 |  D  |
 
-[Verse]
-D           A       Bm
-  Would you hold my hand
-G      D	            A
-  If I saw you in heaven
-D	          A       Bm
-  Would you help me stand
-G	     D 	           A
-  If I saw you in heaven
+[Verse*]
+Would you hold my hand,
+If I saw you in heaven,
+Would you help me stand,
+If I saw you in heaven.
 
 [Chorus]
 Bm	           Gb   Am	              B
@@ -67,15 +63,11 @@ And I know there'll be no more...
 Tears in heaven
 
 
-[Verse]
-D	          A	      Bm
-  Would you know my name,
-G      D        	   A
-  If I saw you in heaven,
-D          A      Bm
-  Would it be the same,
-G      D             A
-  If I saw you in heaven,
+[Verse*]
+Would you know my name,
+If I saw you in heaven,
+Would it be the same,
+If I saw you in heaven.
 
 [Chorus]
 Bm	        Gb

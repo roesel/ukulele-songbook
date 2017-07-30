@@ -4,28 +4,25 @@ By: Waldemar Matuška
 Strumming: d-u-u-
 Note: Every verse line is 8 bars: Am 2x E 4x Am 2x. Every chorus line is 4 bars: Dm 2x Am 2x or Em 2x Am 2x. Instead of Dm  Am  E one can play also Am  Em B7.
 
-[Intro]
-Dm   Am   E  Am   Dm   Am   E  Am 
-   
 [Verse]
-  Am               E                   Am 
+Am              E      E             Am
 Nebe je modrý a zlatý, bílá sluneční záře,
-                  E                      Am 
+Am               E     E               Am
 horko a sváteční šaty, vřava a zpocený tváře,
-                 E                         Am 
+Am              E    E                  Am
 vím, co se bude dít, býk už se v ohradě vzpíná,
-                    E                       Am 
+Am                 E    Am                 Am
 kdo chce, ten může jít, já si dám sklenici vína.
 
 
 [Chorus]
- Dm               Am 
+Dm               Am
 Žízeň je veliká, život mi utíká,
- E                   Am 
+E                   Am
 nechte mě příjemně snít,
- Dm                Am 
+Dm                Am
 ve stínu pod fíky poslouchat slavíky,
-  E                 Am 
+E                  Am
 zpívat si s nima a pít.
 
 
@@ -36,7 +33,7 @@ dobře vím, co znamená pád do nástrah dívčího klína,
 někdo má pletky rád, já si dám sklenici vína.
 
 
-[Chorus*]    
+[Chorus*]
 Žízeň je veliká...
 
 

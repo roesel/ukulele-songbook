@@ -140,21 +140,19 @@ def parse_song_info(data):
             song_info['Note'] = m.group(1)
 
     formated = '\\addcontentsline{{toc}}{{section}}{{{Title}}}\n'.format(**song_info)
-    formated += '{{\\Large\\bfseries {Title}}}~{{\\large\\bfseries\\itshape ({By})}}'.format(**song_info)
+    formated += '{{\\Large\\bfseries {Title}}}\\\\[3ex]\n{{\\large\\bfseries\\itshape {By}}}\\\\[3ex]\n'.format(**song_info)
     if song_info['Capo']:
-        pass
-        #formated += '\\textbf{{Capo}}: {Capo}\\\\[1ex]\n'.format(**song_info)
+        formated += '\\textbf{{Capo}}: {Capo}\\\\[1ex]\n'.format(**song_info)
     if song_info['Strumming']:
-        pass
-        # for note, pattern in zip(song_info['Strumming']['Note'], song_info['Strumming']['Pattern']):
-        #     if note:
-        #         note = ' ' + note
-        #     else:
-        #         note = ''
-        #     formated += '\\textbf{{Strumming}}{}:\\\\[1ex]\n{}\\\\[1ex]\n'.format(note, pattern)
+        for note, pattern in zip(song_info['Strumming']['Note'], song_info['Strumming']['Pattern']):
+            if note:
+                note = ' ' + note
+            else:
+                note = ''
+
+            formated += '\\textbf{{Strumming}}{}:\\\\[1ex]\n{}\\\\[1ex]\n'.format(note, pattern)
     if song_info['Note']:
-        pass
-        #formated += '\\textbf{{Note}}: {Note}\\\\[1ex]\n'.format(**song_info)
+        formated += '\\textbf{{Note}}: {Note}\\\\[1ex]\n'.format(**song_info)
 
     # formated text always ends with something like '\\[3ex]\n' - this creates
     # an extra space after the last line -- delete in (i know it's a bad practice) :-)
@@ -227,10 +225,10 @@ def split_song(file_location, save_folder):
                 f.write('\n\\chordlist{{{}}}\\\\\n'.format(used_chords))
 
             elif tag.lower() == '[intro]':
-                f.write('\n\\textbf{{Intro}}:\n' + inline_chord_line(dat.strip()) + '\\\\\n')
+                f.write('\n\\textbf{{Intro}}:\\\\\n' + inline_chord_line(dat.strip()) + '\\\\\n')
 
             elif tag.lower() == '[bridge]':
-                f.write('\n\\textbf{{Bridge}}:\n' + inline_chord_line(dat.strip()) + '\\\\\n')
+                f.write('\n\\textbf{{Bridge}}:\\\\\n' + inline_chord_line(dat.strip()) + '\\\\\n')
 
             elif tag.lower() in ['[chorus]','[verse]', '[chorus*]', '[verse*]', '[pre-chorus]', '[interlude]', '[outro]']:
 
@@ -254,9 +252,9 @@ def split_song(file_location, save_folder):
                 parsed = parsed.replace(' ','~')
 
                 if tag.lower() in ['[chorus]', '[chorus*]']:
-                    f.write('\n\\textbf{R}:~')
+                    f.write('\n\\textbf{{Chorus}}:\\\\[1ex]\n')
                 elif tag.lower() in ['[verse]', '[verse*]']:
-                    f.write('\n')
+                    f.write('\n\\textbf{{Verse}}:\\\\[1ex]\n')
                 elif tag.lower() in ['[pre-chorus]', '[pre-chorus*]']:
                     f.write('\n\\textbf{{Pre-Chorus}}:\\\\[1ex]\n')
                 elif tag.lower() in ['[interlude]']:

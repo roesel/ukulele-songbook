@@ -3,18 +3,18 @@ Title: Pole s bavlnou
 By: Rangers
 
 [Verse]
-         D                      D7
-1.  Pane můj, co v nebi je tvůj dům,
-                G          D
-    má máma můj život dala katům,
-                              A7
-    katům mým, v polích s bavlnou.
-         D                      D7
-    Pane můj, co v nebi je tvůj dům,
-                G          D
-    má máma můj život dala katům,
-              A7             D A7 D
-    katům mým v polích s bavlnou.
+     D                      D7
+Pane můj, co v nebi je tvůj dům,
+            G          D
+má máma můj život dala katům,
+                          A7
+katům mým, v polích s bavlnou.
+     D                      D7
+Pane můj, co v nebi je tvůj dům,
+            G          D
+má máma můj život dala katům,
+          A7             D A7 D
+katům mým v polích s bavlnou.
 
 [Chorus]
 D           G
@@ -31,22 +31,22 @@ To co znáš ty v Louisianě
 i tam jdou v polích s bavlnou.
 
 [Verse*]
-2.  [: Já vím, brzy musí přijít soud,
-       černý záda práva na něm vyhrajou,
-       boží soud v polích s bavlnou. :]
+[: Já vím, brzy musí přijít soud,
+   černý záda práva na něm vyhrajou,
+   boží soud v polích s bavlnou. :]
 
 [Chorus*]
 Den za dnem...
 
 [Verse*]
-3.  [: Chtěl bych jít na potem vlhký lány,
-       tak řekni, pane můj, černý zvoň hrany
-       katům svým v polích s bavlnou. :]
+[: Chtěl bych jít na potem vlhký lány,
+   tak řekni, pane můj, černý zvoň hrany
+   katům svým v polích s bavlnou. :]
 
 [Chorus*]
 Den za dnem...
 
 [Verse*]
-4.  [: Dnes měj pane, co v nebi je tvůj dům,
-       mou duši, když život patří katům,
-       katům mým, v polích s bavlnou. :]
+[: Dnes měj pane, co v nebi je tvůj dům,
+   mou duši, když život patří katům,
+   katům mým, v polích s bavlnou. :]
