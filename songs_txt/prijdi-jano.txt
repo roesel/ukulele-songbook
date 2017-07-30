@@ -1,0 +1,33 @@
+[Info]
+Title: Prijdi Jano k nám
+By: Lidová
+
+[Verse]
+   D
+[: Pridi Jano k nám, ramcarára juchajdá,
+   G          D
+   ale nechoď sám.  :]
+   A7              D
+[: Vem si s sebou, vem si s sebou kamarády
+   D      A7   D
+   přes zelený háj. :]
+
+[Verse*]
+[: V zeleném háju, na ťa čakajů. :]
+[: Tam ťa Jano premýlený, tam ťa zabijů. :]
+
+[Verse*]
+[: Nazabijů ma, nebojím sa já. :]
+[: Mám šavlenku ocelovů, vysekám sa já. :]
+
+[Verse*]
+[: Nevysekáš sa, je jich na ťa moc. :]
+[: Nebudeš moct zavolati: Milá dobrů noc!  :]
+
+[Verse*]
+[: Dobrů noc dávám, všem věrným panám. :]
+[: jen tej jednej falešnici, dobrů noc nedám. :]
+
+[Verse*]
+( [: A na druhý den, vyšla zpráva ven, :]
+  [: že byl Jano premilený, v háji zavražděn. :] )
