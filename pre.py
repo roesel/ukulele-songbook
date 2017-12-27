@@ -5,6 +5,8 @@ import re
 import glob
 import errno
 
+import argparse
+
 def chord_positions(chordline):
     ''' Returns a list of chords and their respective positions in line. '''
     chords = chordline.split()
@@ -141,20 +143,19 @@ def parse_song_info(data):
 
     formated = '\\addcontentsline{{toc}}{{section}}{{{Title}}}\n'.format(**song_info)
     formated += '{{\\Large\\bfseries {Title}}}~{{\\large\\bfseries\\itshape ({By})}}'.format(**song_info)
-    if song_info['Capo']:
-        pass
-        #formated += '\\textbf{{Capo}}: {Capo}\\\\[1ex]\n'.format(**song_info)
-    if song_info['Strumming']:
-        pass
-        # for note, pattern in zip(song_info['Strumming']['Note'], song_info['Strumming']['Pattern']):
-        #     if note:
-        #         note = ' ' + note
-        #     else:
-        #         note = ''
-        #     formated += '\\textbf{{Strumming}}{}:\\\\[1ex]\n{}\\\\[1ex]\n'.format(note, pattern)
-    if song_info['Note']:
-        pass
-        #formated += '\\textbf{{Note}}: {Note}\\\\[1ex]\n'.format(**song_info)
+    if args.capo or args.note or args.strumming:
+        formated += '\\\\[3ex]\n'
+    if song_info['Capo'] and args.capo:
+        formated += '\\textbf{{Capo}}: {Capo}\\\\[1ex]\n'.format(**song_info)
+    if song_info['Strumming'] and args.strumming:
+        for note, pattern in zip(song_info['Strumming']['Note'], song_info['Strumming']['Pattern']):
+            if note:
+                note = ' ' + note
+            else:
+                note = ''
+                formated += '\\textbf{{Strumming}}{}:\\\\[1ex]\n{}\\\\[1ex]\n'.format(note, pattern)
+    if song_info['Note'] and args.note:
+        formated += '\\textbf{{Note}}: {Note}\\\\[1ex]\n'.format(**song_info)
 
     # formated text always ends with something like '\\[3ex]\n' - this creates
     # an extra space after the last line -- delete in (i know it's a bad practice) :-)
@@ -272,6 +273,14 @@ def make_sure_path_exists(path):
     except OSError as exception:
         if exception.errno != errno.EEXIST:
             raise
+
+parser = argparse.ArgumentParser(description='Preprocessing...')
+
+parser.add_argument('--capo', action='store_true')
+parser.add_argument('--note', action='store_true')
+parser.add_argument('--strumming', action='store_true')
+
+args = parser.parse_args()
 
 make_sure_path_exists('songs_tex')
 for song in get_all_files_from('songs_txt'):
