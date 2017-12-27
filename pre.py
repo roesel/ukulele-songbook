@@ -137,6 +137,7 @@ def parse_song_info(data):
             strum = strumming_pattern(m.group(1))
             song_info['Strumming']['Note'].append(m.group(2))
             song_info['Strumming']['Pattern'].append(strum)
+
         m = re.match(r'Note: (.*)', line)
         if m:
             song_info['Note'] = m.group(1)
@@ -153,7 +154,7 @@ def parse_song_info(data):
                 note = ' ' + note
             else:
                 note = ''
-                formated += '\\textbf{{Strumming}}{}:\\\\[1ex]\n{}\\\\[1ex]\n'.format(note, pattern)
+            formated += '\\textbf{{Strumming}}{}:\\\\[1ex]\n{}\\\\[1ex]\n'.format(note, pattern)
     if song_info['Note'] and args.note:
         formated += '\\textbf{{Note}}: {Note}\\\\[1ex]\n'.format(**song_info)
 
