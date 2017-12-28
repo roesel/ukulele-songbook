@@ -284,5 +284,6 @@ parser.add_argument('--strumming', action='store_true')
 args = parser.parse_args()
 
 make_sure_path_exists('songs_tex')
+
 for song in get_all_files_from('songs_txt'):
     split_song('songs_txt/'+song, 'songs_tex')
