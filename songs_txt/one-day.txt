@@ -1,6 +1,9 @@
 [Info]
 Title: One Day
 By: Matisyahu
+Strumming: d-d-d-du (main)
+Strumming: d-dudud- (alternative)
+Note: Also, with capo 3: G D Em C
 
 [Verse]
 C            G             Am            F
