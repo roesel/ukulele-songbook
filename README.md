@@ -7,3 +7,5 @@ Songbook with chords and their ukulele forms.
 ### preprocessing
 
 The parser accepts the following arguments that toggle respective sections of the song header info `--capo`, `--note`, `--strumming`
+
+Adjust formating by the following arguments: `--compact`
