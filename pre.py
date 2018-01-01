@@ -172,19 +172,21 @@ def split_song(file_location, save_folder):
             Capo:
             Strumming:
 
-        [Intro]
-        [Verse]
-        [Pre-Chorus]
-        [Chorus]
-        [Interlude]
-        [Bridge]
-        [Outro]
+        If the tag ends with `*`, it contains only chords:
+        e.g. [Intro*], [Outro*], [Ending*], ...
+
+        If the tag ends with `&`, it contains only text:
+        e.g. [Verse&], [Chorus&], ...
+
+        Otherwise, it contains chords and text lins:
+        e.g. [Bridge], [Pre-Chorus], [Interlude]...
+
     '''
     with open(file_location, 'r', encoding="utf-8") as f:
         txt = f.read()
 
     with open(save_folder + '/' + file_location.split("/")[-1] + '.tex', 'w', encoding="utf-8") as f:
-        song_parts = re.split(r'(\[[\w\-\*]+\])\s*\n', txt)
+        song_parts = re.split(r'(\[[\w\-\*\&]+\])\s*\n', txt)
 
         if song_parts[0] == '':
             song_parts.pop(0)
@@ -199,16 +201,23 @@ def split_song(file_location, save_folder):
 
         for j, (tag, dat) in enumerate(zip(tags, data)):
 
-            if tag.lower() == '[intro]':
+            if tag.lower() == '[info]':
+                pass
+
+            elif re.match(r'\[[\w\-]+\*\]', tag.lower()):
                 used_chords += dat.strip() + ' '
 
-            elif tag.lower() == '[bridge]':
-                used_chords += dat.strip() + ' '
-
-            elif tag.lower() in ['[chorus]', '[verse]', '[pre-chorus]', '[interlude]', '[outro]']:
+            elif re.match(r'\[[\w\-]+\]', tag.lower()):
                 lines = [s for s in dat.splitlines() if s]
                 chordlines = lines[::2]
                 used_chords += ' ' + ' '.join(chordlines) + ' '
+
+            elif re.match(r'\[[\w\-]+\&\]', tag.lower()):
+                pass
+
+            else:
+                print("Unidentified tag {}".format(tag))
+                raise
 
         # remove all characters except for 'A-Z', 'a-z', '0-9', '/', '#', '()', and whitespace
         used_chords = re.sub(r'([^A-Za-z0-9/#\(\)\s]+)',' ',used_chords)
@@ -223,22 +232,27 @@ def split_song(file_location, save_folder):
         # print(used_chords)
 
         for j, (tag, dat) in enumerate(zip(tags, data)):
+
+            tag_string = re.sub(r'[\[\]\&\*]','',tag.title())
+
             if tag.lower() == '[info]':
                 f.write(parse_song_info(dat) + '\n' + '\\bigskip\n')
 
                 f.write('\n\\chordlist{{{}}}\\\\\n'.format(used_chords))
 
-            elif tag.lower() == '[intro]':
-                f.write('\n\\textbf{{Intro}}:\n' + inline_chord_line(dat.strip()) + '\\\\\n')
+            elif re.match(r'\[[\w\-]+\*\]', tag.lower()):
+                if args.compact:
+                    f.write('\n\\textbf{{{}}}:~'.format(tag_string) + '{{\\sffamily {}}}\n'.format(inline_chord_line(dat.strip())) + '\\\\\n')
+                else:
+                    f.write('\n\\textbf{{{}}}:\\\\[1ex]\n'.format(tag_string) + '{{\\sffamily {}}}\n'.format(inline_chord_line(dat.strip())) + '\\\\\n')
 
-            elif tag.lower() == '[bridge]':
-                f.write('\n\\textbf{{Bridge}}:\n' + inline_chord_line(dat.strip()) + '\\\\\n')
-
-            elif tag.lower() in ['[chorus]','[verse]', '[chorus*]', '[verse*]', '[pre-chorus]', '[interlude]', '[outro]']:
+            elif re.match(r'\[[\w\-]+\&?\]', tag.lower()):
 
                 lines = [s for s in dat.splitlines() if s]
 
-                if tag.lower() in ['[chorus]','[verse]', '[pre-chorus]', '[interlude]', '[outro]']:
+                # print(tag)
+
+                if re.match(r'\[[\w\-]+\]', tag.lower()):
                     chordlines = lines[::2]
                     textlines = lines[1::2]
 
@@ -250,21 +264,19 @@ def split_song(file_location, save_folder):
                         # print(injected_line + "\\\\")
                         parsed += injected_line + '\\\\\n'
 
-                elif tag.lower() in ['[chorus*]', '[verse*]']:
+                elif re.match(r'\[[\w\-]+\&\]', tag.lower()):
                     parsed = '\\\\\n'.join(lines) + '\\\\\n'
+
+                else:
+                    print("Unidentified tag {}".format(tag))
+                    raise
 
                 parsed = parsed.replace(' ','~')
 
-                if tag.lower() in ['[chorus]', '[chorus*]']:
-                    f.write('\n\\textbf{R}:~')
-                elif tag.lower() in ['[verse]', '[verse*]']:
-                    f.write('\n')
-                elif tag.lower() in ['[pre-chorus]', '[pre-chorus*]']:
-                    f.write('\n\\textbf{{Pre-Chorus}}:\\\\[1ex]\n')
-                elif tag.lower() in ['[interlude]']:
-                    f.write('\n\\textbf{{Interlude}}:\\\\[1ex]\n')
-                elif tag.lower() in ['[outro]']:
-                    f.write('\n\\textbf{{Outro}}:\\\\[1ex]\n')
+                if args.compact:
+                    f.write('\n\\textbf{{{}}}:~'.format(tag_string))
+                else:
+                    f.write('\n\\textbf{{{}}}:\\\\[1ex]\n'.format(tag_string))
 
                 f.write('{{\\sffamily {}}}\n'.format(parsed))
 
@@ -278,6 +290,7 @@ def make_sure_path_exists(path):
 parser = argparse.ArgumentParser(description='Preprocessing...')
 
 parser.add_argument('--capo', action='store_true')
+parser.add_argument('--compact', action='store_true')
 parser.add_argument('--note', action='store_true')
 parser.add_argument('--strumming', action='store_true')
 
@@ -286,4 +299,5 @@ args = parser.parse_args()
 make_sure_path_exists('songs_tex')
 
 for song in get_all_files_from('songs_txt'):
+    print("Preprocessing song {}".format(song))
     split_song('songs_txt/'+song, 'songs_tex')
