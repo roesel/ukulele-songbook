@@ -30,23 +30,23 @@ To co znáš ty v Louisianě
            A7             D A7 D
 i tam jdou v polích s bavlnou.
 
-[Verse*]
+[Verse&]
 [: Já vím, brzy musí přijít soud,
    černý záda práva na něm vyhrajou,
    boží soud v polích s bavlnou. :]
 
-[Chorus*]
+[Chorus&]
 Den za dnem...
 
-[Verse*]
+[Verse&]
 [: Chtěl bych jít na potem vlhký lány,
    tak řekni, pane můj, černý zvoň hrany
    katům svým v polích s bavlnou. :]
 
-[Chorus*]
+[Chorus&]
 Den za dnem...
 
-[Verse*]
+[Verse&]
 [: Dnes měj pane, co v nebi je tvůj dům,
    mou duši, když život patří katům,
    katům mým, v polích s bavlnou. :]

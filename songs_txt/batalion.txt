@@ -30,14 +30,14 @@ víno na kuráž a k ránu dvě hodinky spá - nku,
 C          C         G   Am    Em   Am
 díky, díky vám královští ver - bí - ři.
 
-[Verse*]
-Rozprášen je batalion, poslední vojáci se k zEm  hroutí,
+[Verse&]
+Rozprášen je batalion, poslední vojáci se k zemi hroutí,
 na polštáři z kopretin budou věčně spát.
 Neplač sladká Marion, verbíři nové chlapce přivedou ti,
 za královský hermelín, padne každý rád.
 
-[Chorus*]
+[Chorus&]
 Víno na kuráž ...
 
-[Verse*]
+[Verse&]
 Víno máš a markytánku ...

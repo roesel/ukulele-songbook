@@ -23,7 +23,7 @@ Hallelujah, Hallelujah
       F          C~G~C~C
 Hallelujah, Hallelujah
 
-[Verse*]
+[Verse&]
 Your faith was strong but you needed proof,
 you saw her bathing on the roof,
 her beauty and the moonlight overthrew you.
@@ -31,10 +31,10 @@ She tied you to a kitchen chair,
 she broke your throne, and she cut your hair,
 and from your lips she drew the Hallelujah.
 
-[Chorus*]
+[Chorus&]
 Hallelujah, ...
 
-[Verse*]
+[Verse&]
 You say I took the name in vain,
 but I don't even know the name,
 but if I did—well, really—what's it to you?
@@ -42,10 +42,10 @@ There's a blaze of light in every word,
 it doesn't matter which you heard,
 the holy or the broken Hallelujah.
 
-[Chorus*]
+[Chorus&]
 Hallelujah, ...
 
-[Verse*]
+[Verse&]
 I did my best, it wasn't much,
 I couldn't feel, so I tried to touch.
 I've told the truth, I didn't come to fool you.
@@ -53,5 +53,5 @@ And even though it all went wrong
 I'll stand before the Lord of Song
 with nothing on my tongue but Hallelujah.
 
-[Chorus*]
+[Chorus&]
 Hallelujah, ...

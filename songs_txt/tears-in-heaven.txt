@@ -25,7 +25,7 @@ Here in heaven.
 [Interlude*]
 | D   A | Bm  | G  A7  A7 |  D  |
 
-[Verse*]
+[Verse&]
 Would you hold my hand,
 If I saw you in heaven,
 Would you help me stand,
@@ -52,7 +52,7 @@ Have you begging please
 Begging please
 
 [Interlude*]
-| D   A | Bm  | G  A7  A7 |  D  | x2
+| D   A | Bm  | G  A7  A7 |  D  | (x2)
 
 [Chorus]
 Bm	         Gb    Am	                 B
@@ -63,7 +63,7 @@ And I know there'll be no more...
 Tears in heaven
 
 
-[Verse*]
+[Verse&]
 Would you know my name,
 If I saw you in heaven,
 Would it be the same,

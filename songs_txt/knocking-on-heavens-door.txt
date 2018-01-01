@@ -3,7 +3,7 @@ Title: Knockin On Heavens Door
 By: Bob Dylan
 Strumming: d---d-du
 
-[Intro]
+[Intro*]
 G D C C (x2)
 
 [Verse]
@@ -28,14 +28,14 @@ knock knock knocking on heaven's door
 C
 Hey, hey, hey, hey, yeah
 
-[Solo]
+[Solo*]
 G D C C (x2)
 
-[Verse*]
+[Verse&]
 Mama, put my guns in the ground
 I can't shoot them anymore
 That cold black cloud is coming down
 Feels like I'm knocking on heaven's door
 
-[Chorus*]
+[Chorus&]
 Knock knock... (xN)

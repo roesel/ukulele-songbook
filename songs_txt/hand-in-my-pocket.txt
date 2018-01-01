@@ -23,7 +23,7 @@ Cause I got one hand in my pocket
 And the other one is givin' a high five
 
 
-[Verse*]
+[Verse&]
 I feel drunk but I'm sober, I'm young and I'm underpaid
 I'm dyin' but I'm workin', yeah
 I care but I'm restless, I'm here but I'm really gone
@@ -40,7 +40,7 @@ Cause I got one hand in my pocket
         C            C9                G
 And the other one is flickin' a cigarette
 
-[Verse*]
+[Verse&]
 (Instrumental part: play G (boring) or jump to the next chorus!)
 (Or get Springsteen/Dylan/Alanis to play the harmonica ;).)
 
@@ -55,14 +55,14 @@ Cause I got one hand in my pocket
 And the other one is givin' a peace sign
 
 
-[Verse*]
+[Verse&]
 I'm free but I'm focused, I'm green but I'm wise
 I'm hard but I'm friendly, baby
 I'm sad but I'm laughin', I'm brave but I'm chickenshit
 I'm sick but I'm pretty, baby
 
 
-[Chorus] 
+[Chorus]
                       F         C
 And what it all boils down to
                                        G

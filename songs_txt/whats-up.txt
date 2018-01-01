@@ -5,7 +5,8 @@ Capo: 2
 Strumming: d-dud-du dudu-udu (main)
 Strumming: d-dud-du d-du-udu (alternative)
 Note: Every chord plays for two bars (?)
-[Intro]
+
+[Intro*]
 G  Am  C   G     G  Am  C   G
 
 [Verse]
@@ -25,14 +26,14 @@ Of man, for whatever that means
 
 
 [Pre-Chorus]
-         G                                    
+         G
 And so I cry sometimes when I'm lying in bed
-        Am           
-Just to get it all out, what's in my head  
+        Am
+Just to get it all out, what's in my head
       C                         G
 and I - I am feeling a little peculiar
 
-         G 
+         G
 And so I wake in the morning and I step outside
       Am
 and I take a deep breath and I get real high and
@@ -53,9 +54,9 @@ I said "Hey, what's going on?"
 
 [Interlude]
 G     Am  C   G
-Ooh, Ooh Ooh      
+Ooh, Ooh Ooh
 G     Am  C   G
-Ooh, Ooh Ooh 
+Ooh, Ooh Ooh
 
 
 [Verse]
@@ -71,14 +72,14 @@ I pray every single day
 For a revolution
 
 
-[Chorus*]           
+[Chorus&]
 And so I cry sometimes... x1
 And I said "Heyeyeyeyey ... x2
 
 
 [Interlude]
 G     Am  C   G
-Ooh, Ooh Ooh      
+Ooh, Ooh Ooh
 
 
 [Outro]
@@ -87,5 +88,4 @@ Twenty-five years and my life is still
 Am                                      C
 Trying to get up that great big hill of hope
            G
-For a destination 
-
+For a destination

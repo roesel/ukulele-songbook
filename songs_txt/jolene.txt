@@ -29,10 +29,10 @@ your voice is soft like summer rain
     G           Em               Am
 and I cannot compete with you, Jolene.
 
-[Chorus*]
+[Chorus&]
 Jolene, Jolene, ...
 
-[Verse*]
+[Verse&]
 He talks about you in his sleep
 There's nothing I can do to keep
 From crying when he calls your name, Jolene.
@@ -42,10 +42,10 @@ How you could easily take my man
 But you don't know what he means to me, Jolene
 
 
-[Chorus*]
+[Chorus&]
 Jolene, Jolene, ...
 
-[Verse*]
+[Verse&]
 You could have your choice of men,
 but I could never love again, 'cause
 he's the only one for me, Jolene.
@@ -54,5 +54,5 @@ I had to have this talk with you,
 my happiness depends on you,
 whatever you decide to do, Jolene
 
-[Chorus*]
+[Chorus&]
 Jolene, Jolene, ...

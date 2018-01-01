@@ -14,7 +14,7 @@ nechal ovce v louce stát, nesměle, nesměle
      C          G           C    F   C
 na pochod začal vojsku bubnovat.
 
-[Verse*]
+[Verse&]
 Na pochod se vojsko dává, 
 kaprál volá: "Králi budiž sláva!",
 vpředu tambor s bubnem víří,
@@ -22,7 +22,7 @@ do bitevní vřavy rovnou míří,
 trubka vojenská a s ní, kanón zní, kanón zní,
 vyhrává marš na cestu poslední.
 
-[Verse*]
+[Verse&]
 Na šavlích se slunce blejská,
 po ovcích se ovčákovi stejská,
 po zahrádce s planou růží,
@@ -30,7 +30,7 @@ není buben, má jen jednu kůži,
 na vojáka proč si hrát, buben sem, buben tam, 
 k čertu s ním může táhnout i pan král!
 
-[Verse*]
+[Verse&]
 V dálce za ním bitva hřímá, 
 buben pryč a paličky jen třímá, 
 cestou stokrát známou běží,

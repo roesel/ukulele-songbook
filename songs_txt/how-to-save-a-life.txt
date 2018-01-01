@@ -7,7 +7,7 @@ Strumming: d--u-ud- (verse)
 Strumming: d-du-ud- (chorus)
 Note: Every chord 4 bars except for 2nd/4th line of chorus -- G 2 bars, D/F\# 2  bars.
 
-[Intro]
+[Intro*]
 
 G D G D
 
@@ -42,7 +42,7 @@ And I would have stayed up with you all night
              G     D      G
 Had I known how to save a life
 
-[Bridge]
+[Bridge*]
 D/F#   Em   D/F#
 
 [Verse]
@@ -76,7 +76,7 @@ And I would have stayed up with you all night
              G     D      G
 Had I known how to save a life
 
-[Bridge]
+[Bridge*]
 D/F#   Em   D/F#
 
 [Verse]
@@ -118,5 +118,5 @@ And I would have stayed up with you all night
              G     D      G
 Had I known how to save a life
 
-[Bridge]
+[Bridge*]
 D/F#   Em   D/F#

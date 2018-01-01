@@ -12,7 +12,7 @@ pramínek vlasů    jí ustřihnu potají,
           C       Ami            C   G7
 komu - no přece té,   kterou mám rád.
 
-[Verse*]
+[Verse&]
 Pramínek vlasů jí ustřihnu potají,
 já blázen pod polštář chci si ho dát,
 ačkoliv sny se mi zásadně nezdají,
@@ -28,7 +28,7 @@ od vlasů, jichž jsem se dotýkal ve spaní,
          As7               G
 nový den nůžkama odstřihne tebe.
 
-[Verse*]
+[Verse&]
 Na bílém polštáři, do kroužku stočený,
 zbude tu po tobě pramínek vlasů,
 nebudu vstávat, dál chci ležet zasněný,

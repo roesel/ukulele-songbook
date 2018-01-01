@@ -26,22 +26,22 @@ E                  Am
 zpívat si s nima a pít.
 
 
-[Verse*]
+[Verse&]
 Ženy jsou krásný a cudný, mnohá se ve mně zhlídla,
 oči jako dvě studny, vlasy jak havraní křídla,
 dobře vím, co znamená pád do nástrah dívčího klína,
 někdo má pletky rád, já si dám sklenici vína.
 
 
-[Chorus*]
+[Chorus&]
 Žízeň je veliká...
 
 
-[Verse*]
+[Verse&]
 Nebe je modrý a zlatý, ženy krásný a cudný,
 mantily, sváteční šaty, oči jako dvě studny,
 zmoudřel jsem stranou od lidí, jsem jak ta zahrada stinná,
 kdo chce, ať mi závidí, já si dám sklenici vína.
 
-[Chorus*]
+[Chorus&]
 Žízeň je veliká...

@@ -12,22 +12,22 @@ By: Lidová
    D      A7   D
    přes zelený háj. :]
 
-[Verse*]
+[Verse&]
 [: V zeleném háju, na ťa čakajů. :]
 [: Tam ťa Jano premýlený, tam ťa zabijů. :]
 
-[Verse*]
+[Verse&]
 [: Nazabijů ma, nebojím sa já. :]
 [: Mám šavlenku ocelovů, vysekám sa já. :]
 
-[Verse*]
+[Verse&]
 [: Nevysekáš sa, je jich na ťa moc. :]
 [: Nebudeš moct zavolati: Milá dobrů noc!  :]
 
-[Verse*]
+[Verse&]
 [: Dobrů noc dávám, všem věrným panám. :]
 [: jen tej jednej falešnici, dobrů noc nedám. :]
 
-[Verse*]
+[Verse&]
 ( [: A na druhý den, vyšla zpráva ven, :]
   [: že byl Jano premilený, v háji zavražděn. :] )

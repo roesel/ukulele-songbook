@@ -22,7 +22,7 @@ Wouldn't you love some - body to love?
  A          G          Asus2    Em   Dsus4
 You better find some - body to love,     ...love!
 
-[Bridge]
+[Bridge*]
   Em          Dsus4         Em Em7 Em Em7   Em
 
 [Verse]
@@ -64,7 +64,7 @@ Wouldn't you love some - body to love?
  A          G          Asus2    Em    Dsus4
 You better find some - body to love----------!
 
-[Bridge]
+[Bridge*]
   Em          Dsus4         Em Em7 Em Em7   Em
 
 
