@@ -1,0 +1,63 @@
+[Info]
+Title: Wish You Were Here
+By: Pink Floyd
+Strumming: d---d-du-ud-dudu
+Note: Em = 022033, A = x022233 in intro, solo
+
+[Intro*]
+
+Em G Em G Em A Em A G
+
+[Verse]
+
+C                           D
+So, so you think you can tell
+              Am
+Heaven from Hell
+                   G
+Blue Skies from pain
+                       D
+Can you tell a green field
+                    C
+From a cold steel rail
+                Am
+A smile from a veil
+                       G
+Do you think you can tell
+                       C
+Did they get you to trade
+                   D
+Your heroes for ghosts
+                  Am
+Hot Ashes for trees
+              G
+Hot air for a cool breeze
+                    D
+Cold comfort for change
+              C
+Did you exchange?
+                      Am
+A walk on part in the war
+                      G
+For a lead role in a cage
+
+
+[Solo*]
+
+Em G Em G Em A Em A G
+
+
+[Chorus]
+
+C                                D
+How I wish, how I wish you were here
+            Am                                      G
+We're just two lost souls swimming in a fish bowl
+                      D
+Year after year.
+                                  C
+Running over the same old ground.
+                                  Am
+What have we found the same old fears
+                G
+Wish you were here...

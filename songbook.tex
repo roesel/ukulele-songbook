@@ -1,4 +1,4 @@
-\documentclass[a5paper,12pt]{extarticle}
+\documentclass[a4paper,12pt]{extarticle}
 
 % Setting page margins
 \usepackage[margin=0.5in]{geometry}
@@ -24,7 +24,7 @@
 \usetikzlibrary{shapes.misc}
 
 \tikzset{cross/.style={cross out, draw=black, minimum size=2*(#1-\pgflinewidth), inner sep=0pt, outer sep=0pt},
-	%default radius will be 1pt. 
+	%default radius will be 1pt.
 	cross/.default={1pt}}
 
 \input{chords_guitar.tex}
@@ -32,14 +32,14 @@
 
 \newtoggle{ukulele}
 \toggletrue{ukulele}
-%\togglefalse{ukulele}
+\togglefalse{ukulele}
 
 \newcommand{\hint}[1]
 {
 	\StrSubstitute{#1}{+}{\#}[\temp]%
 	\begin{tabular}{@{}rcc@{}}
 		& \small{\temp} \\
-		& \iftoggle{ukulele}{\ukulelechord{#1}}{\guitarchord{#1}}\\	
+		& \iftoggle{ukulele}{\ukulelechord{#1}}{\guitarchord{#1}}\\
 	\end{tabular}
 }
 
@@ -50,7 +50,7 @@
 \newmenustylesimple*{chordbox}{\hint{\CurrentMenuElement}}[]{blacknwhite}
 \renewmenumacro{\chordbox}[,]{chordbox}
 \newcommand{\chordlist}[1]{
-	
+
 	\chordbox{#1}
 	\vspace{2ex}
 }
@@ -108,12 +108,12 @@
 
 % ----------------------------------------------------------------------------------------
 \begin{document}
-	
-	% Title	
-	\maketitle	
+
+	% Title
+	\maketitle
 	\tableofcontents
 	\clearpage
-	
+
 	\input{songs_tex/jolene.txt.tex}
 	\clearpage
 	 \input{songs_tex/how-to-save-a-life.txt.tex}
@@ -136,7 +136,7 @@
 	\clearpage
 	\input{songs_tex/hallelujah.txt.tex}
 	\clearpage
-	\input{songs_tex/tears-in-heaven.txt.tex}
+%	\input{songs_tex/tears-in-heaven.txt.tex}
 %	\clearpage
 %	\input{songs_tex/prijdi-jano.txt.tex}
     \clearpage
@@ -159,4 +159,6 @@
 	\input{songs_tex/i-cant-explain.txt.tex}
 	\clearpage
 	\input{songs_tex/dancing-on-my-own.txt.tex}
+	\clearpage
+	\input{songs_tex/wish-you-were-here.txt.tex}
 \end{document}
