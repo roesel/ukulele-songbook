@@ -5,6 +5,8 @@ import re
 import glob
 import errno
 
+import numpy as np
+
 import argparse
 
 def chord_positions(chordline):
@@ -51,7 +53,7 @@ def inject_line(line, chords, positions):
                     N = 4 - (len(line) - last) + 2
                 else:
                     N = 4
-                print(N)
+                #print(N)
                 injected_line += "\phantom{"+ "N"*N +"}"
 
             injected_line += "\chord{" + chords[i] + "}"
@@ -134,7 +136,8 @@ def parse_song_info(data):
 
         m = re.match(r'Strumming: ([duxyz\-\s]*)(\(.*\))?', line)
         if m:
-            strum = strumming_pattern(m.group(1))
+            #strum = strumming_pattern(m.group(1))
+            strum = tikz_strumming(m.group(1))
             song_info['Strumming']['Note'].append(m.group(2))
             song_info['Strumming']['Pattern'].append(strum)
 
@@ -286,6 +289,62 @@ def make_sure_path_exists(path):
     except OSError as exception:
         if exception.errno != errno.EEXIST:
             raise
+
+def tikz_strumming(line):
+    out = ''
+    for l in line.split():
+        out += tikz_strumming_single_pattern(l)
+
+    return out
+
+def tikz_strumming_single_pattern(line):
+    out = r'\begin{tikzpicture}'
+    out += r'\coordinate (A0) at (0,0.25);' \
+    	+ r'\coordinate (A1) at (0,0);' \
+    	+ r'\coordinate (A2) at (0.5,0);' \
+    	+ r'\coordinate (A3) at (0.5,0.25);'
+
+    line = line.strip()
+
+    n = 2
+    for j, a in enumerate([line[i:i+n] for i in range(0, len(line), n)]):
+        out += tikz_strumming_part(j, a)
+
+    out += r'\end{tikzpicture}'
+    return out
+
+def tikz_strumming_part(j, code):
+
+    out = ''
+    for i in np.arange(4):
+        out += r'\coordinate (A%d) at ($(A%d) + (1,0)$);' % (i,i)
+
+
+    out += r'\path [draw] (A0)--(A1)--(A2)--(A3);'
+    out += r'\path [draw] ($ (A1) + (0,0.05) $)--($ (A2) + (0,0.05) $);'
+    out += r'\node [above=0.0 of A0] {\footnotesize \color{gray} %d};' %(j+1)
+    out += r'\node [above=0.0 of A3] {\footnotesize \color{gray} \&};'
+
+    out += tikz_strumming_resolve_code('(A0)', code[0])
+    out += tikz_strumming_resolve_code('(A3)', code[1])
+
+    return out
+
+
+def tikz_strumming_resolve_code(node, code):
+    out = ''
+
+    if code in 'dy':
+        out += r'\draw [thick,<-] ($%s + (0,0.55)$) -- ++(0,0.5);' % (node)
+
+    if code in 'uz':
+        out += r'\draw [thick,->] ($%s + (0,0.55)$) -- ++(0,0.5);' % (node)
+
+    if code in 'xyz':
+        out += r'\coordinate (C) at ($%s + (0,0.55) + (0,0.25)$);' % (node)
+        out += r'\draw (C) node[cross=0.1cm,rotate=0] {};'
+
+    return out
 
 parser = argparse.ArgumentParser(description='Preprocessing...')
 

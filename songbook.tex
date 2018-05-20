@@ -106,6 +106,11 @@
 \newcommand{\downarrowcrossed}{\mathrel{\mathpalette\superimpose{{-}{\downarrow}}}}
 \newcommand{\uparrowcrossed}{\mathrel{\mathpalette\superimpose{{-}{\uparrow}}}}
 
+\usetikzlibrary{positioning}
+\usetikzlibrary{calc}
+
+\tikzset{every picture/.style={/utils/exec={\sffamily}}}
+
 % ----------------------------------------------------------------------------------------
 \begin{document}
 
@@ -113,19 +118,18 @@
 	\maketitle
 	\tableofcontents
 	\clearpage
-
 	\input{songs_tex/jolene.txt.tex}
 	\clearpage
-	 \input{songs_tex/how-to-save-a-life.txt.tex}
-	 \clearpage
+	\input{songs_tex/how-to-save-a-life.txt.tex}
+	\clearpage
 	\input{songs_tex/bedna-od-whisky.txt.tex}
 	\clearpage
 	\input{songs_tex/batalion.txt.tex}
 	\clearpage
 	\input{songs_tex/whats-up.txt.tex}
 	\clearpage
-	 \input{songs_tex/stand-by-me.txt.tex}
-	 \clearpage
+	\input{songs_tex/stand-by-me.txt.tex}
+	\clearpage
 	\input{songs_tex/slavici-z-madridu.txt.tex}
 	\clearpage
 	\input{songs_tex/hand-in-my-pocket.txt.tex}
@@ -139,18 +143,18 @@
 %	\input{songs_tex/tears-in-heaven.txt.tex}
 %	\clearpage
 %	\input{songs_tex/prijdi-jano.txt.tex}
-    \clearpage
+%	\clearpage
 %    \input{songs_tex/praminek-vlasu.txt.tex}
-%    \clearpage
-  \input{songs_tex/one-day.txt.tex}
+   	\clearpage
+	\input{songs_tex/one-day.txt.tex}
 	\clearpage
 	\input{songs_tex/mad-world.txt.tex}
 	\clearpage
 	\input{songs_tex/somebody-to-love.txt.tex}
-  \clearpage
-  \input{songs_tex/ovcak.txt.tex}
-  \clearpage
-  \input{songs_tex/one.txt.tex}
+	\clearpage
+	\input{songs_tex/ovcak.txt.tex}
+	\clearpage
+	\input{songs_tex/one.txt.tex}
 	\clearpage
 	\input{songs_tex/nothing-else-matters.txt.tex}
 	\clearpage
