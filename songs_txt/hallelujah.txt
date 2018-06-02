@@ -1,6 +1,7 @@
 [Info]
 Title: Hallelujah
 By: Leonard Cohen
+Strumming: d-du
 Note: Original version (1985)
 
 [Verse]
@@ -10,25 +11,31 @@ I've heard there was a secret chord
 That David played, and it pleased the Lord
     F                G               C       G
 But you don't really care for music, do you?
-   C                   F           G
+   C                  (F           G)
 It goes like this, the fourth, the fifth
     Am              F
 The minor fall, the major lift
-    G               Em          Am
-The baffled king composing Hallelujah
+    G               Em          Am   Am
+The baffled king composing Hallelujah.
 
 [Chorus]
-     F           Am
+ F    F      Am   Am
 Hallelujah, Hallelujah
-      F          C~G~C~C
+ F    F      C G  C G
 Hallelujah, Hallelujah
 
-[Verse&]
+[Verse]
+     C                               Am
 Your faith was strong but you needed proof,
+     C              Am 
 you saw her bathing on the roof,
+     F              G            C       G
 her beauty and the moonlight overthrew you.
+     C            (F         G)
 She tied you to a kitchen chair,
+   Am                          F
 she broke your throne, and she cut your hair,
+     G                 Em            Am   Am
 and from your lips she drew the Hallelujah.
 
 [Chorus&]
