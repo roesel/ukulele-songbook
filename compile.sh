@@ -1,5 +1,5 @@
 #!/bin/bash
 
-python3 pre.py --capo --strumming --note
+python3 pre.py --capo --strumming --note --compact
 
-pdflatex --shell-escape -interaction=nonstopmode songbook.tex
+pdflatex --shell-escape -interaction=nonstopmode songbook.tex > compile.log
